@@ -1,4 +1,5 @@
 import 'package:doodleverse/home_screen.dart';
+import 'package:doodleverse/widgets/paint_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: const HomeScreen(),
+      home: const PaintScreen(),
     );
   }
 }
