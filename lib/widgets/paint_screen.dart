@@ -16,15 +16,17 @@ class _PaintScreenState extends State<PaintScreen> {
     connect();
   }
 
-   // Dart client
-  IO.Socket socket = IO.io('http://localhost:3000');
-  socket.onConnect((_) {
-    print('connect');
-    socket.emit('msg', 'test');
-  });
-  socket.on('event', (data) => print(data));
-  socket.onDisconnect((_) => print('disconnect'));
-  socket.on('fromServer', (_) => print(_));
+  void connect() {
+    _socket = IO.io('http://192.168.29.154:3000', <String, dynamic>{
+      'transports': ['websocket'],
+      'autoConnect': false
+    });
+    _socket.connect();
+    //listen to socket
+    _socket.onConnect((data) {
+      print(data);
+    });
+  }
 
   Widget build(BuildContext context) {
     return Container();
