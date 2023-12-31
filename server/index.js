@@ -1,11 +1,11 @@
 const express = require('express');
-var http = require('http');
+const http = require('http');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 var server = http.createServer(app);
 const mongoose = require('mongoose');
 
-var io = require('socket.io')(server);
+const io = require('socket.io')(server);
 
 //middleware
 app.use(express.json());
@@ -21,6 +21,7 @@ mongoose
   .catch((e) => {
     console.log(error);
   });
+
 server.listen(port, '0.0.0.0', () => {
   console.log(`Server started and running on port ${port}`);
 });
